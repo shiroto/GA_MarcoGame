@@ -2,7 +2,7 @@
 
 "apple.png":
 {
-	"frame": {"x":380,"y":0,"w":120,"h":120},
+	"frame": {"x":0,"y":105,"w":120,"h":120},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
@@ -10,7 +10,7 @@
 },
 "bucket.png":
 {
-	"frame": {"x":0,"y":485,"w":500,"h":700},
+	"frame": {"x":0,"y":635,"w":500,"h":700},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":500,"h":700},
@@ -26,7 +26,7 @@
 },
 "dekopon.png":
 {
-	"frame": {"x":185,"y":0,"w":90,"h":90},
+	"frame": {"x":249,"y":0,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -34,15 +34,23 @@
 },
 "grapes.png":
 {
-	"frame": {"x":110,"y":0,"w":75,"h":75},
+	"frame": {"x":174,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
 	"sourceSize": {"w":75,"h":75}
 },
+"marco.png":
+{
+	"frame": {"x":110,"y":0,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
 "melon.png":
 {
-	"frame": {"x":0,"y":285,"w":180,"h":180},
+	"frame": {"x":165,"y":255,"w":180,"h":180},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":180},
@@ -50,7 +58,7 @@
 },
 "orange.png":
 {
-	"frame": {"x":275,"y":0,"w":105,"h":105},
+	"frame": {"x":339,"y":0,"w":105,"h":105},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":105,"h":105},
@@ -58,7 +66,7 @@
 },
 "peach.png":
 {
-	"frame": {"x":135,"y":120,"w":150,"h":150},
+	"frame": {"x":255,"y":105,"w":150,"h":150},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":150},
@@ -66,7 +74,7 @@
 },
 "pear.png":
 {
-	"frame": {"x":0,"y":120,"w":135,"h":135},
+	"frame": {"x":120,"y":105,"w":135,"h":135},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":135,"h":135},
@@ -74,7 +82,7 @@
 },
 "pineapple.png":
 {
-	"frame": {"x":285,"y":120,"w":165,"h":165},
+	"frame": {"x":0,"y":255,"w":165,"h":165},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":165},
@@ -90,7 +98,7 @@
 },
 "watermelon.png":
 {
-	"frame": {"x":180,"y":285,"w":200,"h":200},
+	"frame": {"x":0,"y":435,"w":200,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
@@ -101,8 +109,8 @@
 	"version": "1.1",
 	"image": "fruits.png",
 	"format": "RGBA8888",
-	"size": {"w":500,"h":1185},
+	"size": {"w":500,"h":1335},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:6ef9230ab0e4246effde0b586fd72cde:5bcd2d01751d292e21a728f6888f64f2:172f4cb6aa93906862485b1299e80945$"
+	"smartupdate": "$TexturePacker:SmartUpdate:dbd2cecbddb53939b7f2f854d42f72e3:555c60d9fa0fd29878c330be7031599c:172f4cb6aa93906862485b1299e80945$"
 }
 }
