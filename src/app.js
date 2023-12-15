@@ -35,6 +35,8 @@ async function merge(e1, e2) {
     Matter.World.remove(engine.world, e2.physicsBody);
 
     // merge fruits
+    e1.isDestroyed = true;
+    e2.isDestroyed = true;
     e1.targetEntity = e2;
     e2.targetEntity = e1;
     const mergeDist = (e1.radius + e2.radius) / 2;
@@ -97,7 +99,7 @@ Runner.run(runner, engine);
 
 // Game logics
 let score = 0;
-await new Promise(resolve => setTimeout(resolve, 1000));
+// await new Promise(resolve => setTimeout(resolve, 1000));
 const fruitFactory = new FruitFactory(app, engine);
 const soundManager = new SoundManager();
 const bucket = initBucket();

@@ -2,7 +2,6 @@ export class Entity extends PIXI.utils.EventEmitter {
     constructor(ticker, parent, position, sprite, mass) {
         super();
         console.log(`Creating ${this.constructor.name}`);
-        this.isDestroyed = false;
         this.ticker = ticker;
         this.updateEvent = this._update.bind(this);
         this.ticker.add(this.updateEvent);
@@ -39,7 +38,6 @@ export class Entity extends PIXI.utils.EventEmitter {
     }
 
     destroy() {
-        this.isDestroyed = true;
         console.log(`Destroying ${this.constructor.name}`);
         this.ticker.remove(this.updateEvent);
         this.parent.removeChild(this.sprite);

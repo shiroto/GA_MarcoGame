@@ -36,7 +36,7 @@ async function _loadGraphics() {
 }
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor(Math.random() * Math.random() * (max - min) + min);
 }
 
 await _loadGraphics();
