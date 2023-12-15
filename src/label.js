@@ -3,8 +3,7 @@ export class Label {
         this.ticker = ticker;
         this.updateEvent = this._update.bind(this);
         this.ticker.add(this.updateEvent);
-        this.message = new PIXI.Text('Hello, PixiJS!', { fontFamily: 'Arial', fontSize: 30, fill: 0xFFFFFF, align: 'center' });
-        console.log(this.message);
+        this.message = new PIXI.Text('Score goes here', { fontFamily: 'Arial', fontSize: 30, fill: 0xFFFFFF, align: 'center' });
         this.message.x = position.x;
         this.message.y = position.y;
         parent.addChild(this.message);

@@ -17,6 +17,9 @@ export class Entity extends PIXI.utils.EventEmitter {
     }
 
     get position() { return this.physicsBody.position; }
+    get positionVec2() { return vec2.fromValues(this.physicsBody.position.x, this.physicsBody.position.y); }
+    set position(value) { this.physicsBody.position = value; }
+    set target(value) { this.targetEntity = value; }
 
     destroy() {
         this.isDestroyed = true;
@@ -28,6 +31,16 @@ export class Entity extends PIXI.utils.EventEmitter {
     }
 
     _update(delta) {
+        if (this.targetEntity != null) {
+            const dir = vec2.sub(vec2.create(), this.targetEntity.positionVec2, this.positionVec2);
+            vec2.normalize(dir, dir);
+            vec2.scale(dir, dir, delta);
+            this.position = { x: this.positionVec2[0] + dir[0], y: this.positionVec2[1] + dir[1] };
+        }
+        this._updateSprite();
+    }
+
+    _updateSprite() {
         this.sprite.rotation = this.physicsBody.angle;
         this.sprite.x = this.physicsBody.position.x;
         this.sprite.y = this.physicsBody.position.y;

@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>fruits.json</filename>
+                <filename>../src/graphics/fruits.json</filename>
             </struct>
         </map>
         <key>multiPackMode</key>
@@ -215,6 +215,22 @@
                 <rect>4,4,8,8</rect>
                 <key>scale9Paddings</key>
                 <rect>4,4,8,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">crane.png</key>
+            <key type="filename">marco.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9Paddings</key>
+                <rect>16,16,32,32</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -372,6 +388,8 @@
                     <filename>strawberry.png</filename>
                     <filename>watermelon.png</filename>
                     <filename>bucket.png</filename>
+                    <filename>marco.png</filename>
+                    <filename>crane.png</filename>
                 </array>
             </struct>
         </map>
