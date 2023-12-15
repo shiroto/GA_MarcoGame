@@ -24,11 +24,9 @@ function initCrane() {
     const startPos = vec2.fromValues(bucket.x + bucket.width / 2, bucket.y - 20);
     const range = vec2.fromValues(bucket.x + 10, bucket.x + bucket.width - 10);
     const sprite = PIXI.Sprite.from('crane.png');
-    const crane = new Crane(app.stage, startPos, range, sprite, fruitFactory);
+    const crane = new Crane(engine, app.stage, startPos, range, sprite, fruitFactory);
     return crane;
 }
-
-
 
 async function merge(e1, e2) {
     soundManager.zzup();
@@ -80,20 +78,6 @@ const runner = Runner.create();
 const Bodies = Matter.Bodies;
 const Composite = Matter.Composite;
 
-// Game logics
-let score = 0;
-const fruitFactory = new FruitFactory(app, engine);
-const soundManager = new SoundManager();
-const bucket = initBucket();
-const crane = initCrane();
-const label = new Label(app.ticker, app.stage, { x: 70, y: 50 }, getScore);
-const face = PIXI.Sprite.from('marco.png');
-face.anchor.x = 0.5;
-face.anchor.y = 0.5;
-face.x = 40;
-face.y = 66;
-app.stage.addChild(face);
-
 Matter.Events.on(engine, 'collisionStart', (event) => {
     event.pairs.forEach((collision) => {
         if ('entity' in collision.bodyA && 'entity' in collision.bodyB) {
@@ -109,6 +93,23 @@ Matter.Events.on(engine, 'collisionStart', (event) => {
         }
     });
 });
+Runner.run(runner, engine);
+
+// Game logics
+let score = 0;
+await new Promise(resolve => setTimeout(resolve, 1000));
+const fruitFactory = new FruitFactory(app, engine);
+const soundManager = new SoundManager();
+const bucket = initBucket();
+const crane = initCrane();
+const label = new Label(app.ticker, app.stage, { x: 70, y: 50 }, getScore);
+const face = PIXI.Sprite.from('marco.png');
+face.anchor.x = 0.5;
+face.anchor.y = 0.5;
+face.x = 40;
+face.y = 66;
+app.stage.addChild(face);
+
 
 function playPlopp(collision) {
     const vel1 = vec2.fromValues(collision.bodyA.velocity.x, collision.bodyA.velocity.y);
@@ -117,5 +118,3 @@ function playPlopp(collision) {
         soundManager.plopp();
     }
 }
-
-Runner.run(runner, engine);

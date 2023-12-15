@@ -12,14 +12,31 @@ export class Entity extends PIXI.utils.EventEmitter {
         this.radius = sprite.width / 2;
         this.sprite.anchor.x = 0.5;
         this.sprite.anchor.y = 0.5;
-        this.physicsBody = Matter.Bodies.circle(position[0], position[1], this.radius, { mass: mass });
-        this.physicsBody.entity = this;
+        this.entityPosition = position;
+        this.mass = mass;
     }
 
-    get position() { return this.physicsBody.position; }
+    get position() {
+        if (this.physicsBody == null) {
+            return this.entityPosition;
+        } else {
+            return this.physicsBody.position;
+        }
+    }
     get positionVec2() { return vec2.fromValues(this.physicsBody.position.x, this.physicsBody.position.y); }
-    set position(value) { this.physicsBody.position = value; }
+    set position(value) {
+        if (this.physicsBody == null) {
+            this.entityPosition = value;
+        } else {
+            this.physicsBody.position = value;
+        }
+    }
     set target(value) { this.targetEntity = value; }
+
+    createBody() {
+        this.physicsBody = Matter.Bodies.circle(this.entityPosition.x, this.entityPosition.y, this.radius, { mass: this.mass });
+        this.physicsBody.entity = this;
+    }
 
     destroy() {
         this.isDestroyed = true;
@@ -41,8 +58,13 @@ export class Entity extends PIXI.utils.EventEmitter {
     }
 
     _updateSprite() {
-        this.sprite.rotation = this.physicsBody.angle;
-        this.sprite.x = this.physicsBody.position.x;
-        this.sprite.y = this.physicsBody.position.y;
+        if (this.physicsBody == null) {
+            this.sprite.x = this.entityPosition.x;
+            this.sprite.y = this.entityPosition.y;
+        } else {
+            this.sprite.rotation = this.physicsBody.angle;
+            this.sprite.x = this.physicsBody.position.x;
+            this.sprite.y = this.physicsBody.position.y;
+        }
     }
 }

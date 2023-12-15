@@ -1,5 +1,6 @@
 export class Crane {
-    constructor(parent, position, range, sprite, fruitFactory) {
+    constructor(engine, parent, position, range, sprite, fruitFactory) {
+        this.engine = engine;
         this.parent = parent;
         this.sprite = sprite;
         this.parent.addChild(this.sprite);
@@ -11,11 +12,21 @@ export class Crane {
         this.fruitFactory = fruitFactory;
         window.addEventListener('click', event => this._handleClick(event));
         window.addEventListener('mousemove', event => this._onMouseMove(event));
+        this._createNewFruit();
     }
 
     set position(value) {
         if (value.x > this.range[0] && value.x < this.range[1]) {
             this.sprite.x = value.x;
+            this._setFruitPosition();
+        }
+    }
+
+    _setFruitPosition() {
+        if (this.nextFruit != null) {
+            let pos = { x: this.sprite.position.x, y: this.sprite.position.y };
+            pos.y += 30;
+            this.nextFruit.position = pos;
         }
     }
 
@@ -24,6 +35,14 @@ export class Crane {
     }
 
     _handleClick(event) {
-        this.fruitFactory.spawnFruit(vec2.fromValues(event.x, this.sprite.y), 0);
+        this.nextFruit.createBody();
+        Matter.Composite.add(this.engine.world, [this.nextFruit.physicsBody]);
+        this.nextFruit = null;
+        window.setTimeout(() => this._createNewFruit(), 500);
+    }
+
+    _createNewFruit() {
+        this.nextFruit = this.fruitFactory.createFruit(vec2.fromValues(this.sprite.x, this.sprite.y));
+        this._setFruitPosition();
     }
 }
