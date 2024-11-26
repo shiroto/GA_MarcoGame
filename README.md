@@ -1,1 +1,2 @@
-Example JavaScript game for GA.
+# Web Advanced
+Project for lecture at Games Academy.
